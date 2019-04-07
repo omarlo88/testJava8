@@ -1,3 +1,5 @@
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -105,6 +107,11 @@ public class Main {
         Arrays.parallelSort(t, Comparator.reverseOrder());
         System.out.println(Arrays.toString(t));
 
+        Function<Integer, Boolean> isExist = n -> n >= 0;
+        Function<Integer, Boolean> isExist1 = n -> {return n >= 0;};
+        System.out.println("isExist "+isExist.apply(4));
+
+
 
 
         List<String> fruits = Arrays.asList("melon", "abricot", "fraise", "cerise");
@@ -112,6 +119,7 @@ public class Main {
         afficherListe(fruits, String::format);
         
         List<String> f = new ArrayList<>(fruits);
+
         f.removeIf(s -> s.equals("melon"));
         fruits.forEach(System.out::println);
 
@@ -120,6 +128,25 @@ public class Main {
         Arrays.sort(valeurs, Integer::compare);
         System.out.println(Arrays.toString(valeurs));
         System.out.println(Arrays.deepToString(valeurs));
+
+        int nimNumber = Arrays.stream(valeurs).min(Comparator.naturalOrder()).get();
+        System.out.println("nimNumber: " + nimNumber);
+
+        int[] valeurs1 = {10, 4, 2, 7, 5, 8, 1, 9, 3, 6};
+        int nimNumber1 = IntStream.of(valeurs1).min().getAsInt();
+        System.out.println("nimNumber1: " + nimNumber1);
+
+        IntStream.of(valeurs1).min().ifPresent(System.out::println);
+
+        IntStream.of(valeurs1)
+                .distinct()
+                .sorted()
+                .limit(3)
+                .forEach(System.out::println);
+
+        IntStream.range(1, 100).forEach(System.out::println);
+        int[] toArray = IntStream.range(1, 100).toArray();
+        IntStream.range(1,100).boxed().collect(Collectors.toList());
 
         Arrays.sort(valeurs, Main::comparerEntierAscendant);
         System.out.println(Arrays.deepToString(valeurs));
@@ -242,8 +269,8 @@ public class Main {
 
         StringJoiner s = new StringJoiner(",");
 
-        List<String> strings = Arrays.asList("abc", "", "bc", "efg", "abcd","", "jkl");
-        List<String> filtered = strings.stream()
+        List<String> stringList = Arrays.asList("abc", "", "bc", "efg", "abcd","", "jkl");
+        List<String> filtered = stringList.stream()
                 .filter(string -> !string.isEmpty())
                 .collect(Collectors.toList());
         System.out.println(filtered);
@@ -398,7 +425,93 @@ public class Main {
         }
         System.out.println(d);
 
+        /*  Exo Java 8 pour les Macdonalds aux USA */
 
+        class McDonald {
+            private double latitude, longitude ;
+            private String name, address, city, state ;
+
+            public McDonald(double latitude, double longitude, String name, String address, String city, String state) {
+                this.latitude = latitude;
+                this.longitude = longitude;
+                this.name = name;
+                this.address = address;
+                this.city = city;
+                this.state = state;
+            }
+
+            public McDonald() {
+            }
+
+            public double getLatitude() {
+                return latitude;
+            }
+
+            public void setLatitude(double latitude) {
+                this.latitude = latitude;
+            }
+
+            public double getLongitude() {
+                return longitude;
+            }
+
+            public void setLongitude(double longitude) {
+                this.longitude = longitude;
+            }
+
+            public String getName() {
+                return name;
+            }
+
+            public void setName(String name) {
+                this.name = name;
+            }
+
+            public String getAddress() {
+                return address;
+            }
+
+            public void setAddress(String address) {
+                this.address = address;
+            }
+
+            public String getCity() {
+                return city;
+            }
+
+            public void setCity(String city) {
+                this.city = city;
+            }
+
+            public String getState() {
+                return state;
+            }
+
+            public void setState(String state) {
+                this.state = state;
+            }
+        }
+
+        try {
+            //Stream<String> lines = Files.lines(Paths.get("/Users/omarlo/Desktop/mcdonalds.csv")) ;
+            //Stream<String> lines = Files.lines(Paths.get("/Users/omarlo/Desktop", "test.txt")) ;
+            Stream<String> lines = Files.lines(Paths.get("/Users/omarlo/Desktop", "mcdonalds.csv")) ;
+            //lines.forEach(System.out::println);
+            List<McDonald> mcdos = lines.map(l ->{
+
+                // -149.95038,61.13712,"McDonalds-Anchorage,AK","3828 W Dimond Blvd, Anchorage,AK, (907) 248-0597"
+                // -72.84817,41.27988,"McDonalds-Branford,CT","424 W Main St, Branford,CT, (203) 488-9353"
+
+                String [] linesString = l.split(",");
+                McDonald m = new McDonald();
+                m.setLatitude(Double.parseDouble(linesString[0]));
+                m.setLongitude(Double.parseDouble(linesString[1]));
+                System.out.println(linesString[2].substring(2));
+                return m;
+            }).collect(Collectors.toList());
+        } catch (Exception e){
+            System.out.println(e);
+        }
         
 
 
