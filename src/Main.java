@@ -14,6 +14,8 @@ import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
+import static java.lang.Integer.compare;
+
 /*
 * @Auteur Omar Lo
 * */
@@ -45,14 +47,17 @@ public class Main {
         System.out.println(index);
         System.out.println(Arrays.binarySearch(tabStr, "B"));
 
-        int[] array = new int[20_000_000];
+        //int[] array = new int[20_000_000];
+        int[] array = new int[5];
         Random random = new Random();
 
-        // Arrays.setAll(array, i -> random.nextInt(100));
+        Arrays.setAll(array, i -> random.nextInt(100));
 
-        // Arrays.parallelSetAll(array, i -> random.nextInt(100));
+        System.out.println(Arrays.toString(array));
 
-        //Arrays.asList(array).forEach(System.out::println);
+        Arrays.parallelSetAll(array, i -> random.nextInt(2));
+
+        System.out.println(Arrays.toString(array));
 
         /*for (int i:array
              ) {
@@ -71,6 +76,18 @@ public class Main {
         Arrays.stream(tab).sorted().forEach(System.out::println);
 
         Arrays.stream(tab).boxed().sorted(Comparator.reverseOrder()).forEach(System.out::println);
+
+        Integer[] te = new Integer[]{24,3,5,34,56,1};
+        System.out.println(" *** *** test Interface Comparator is functional interface *** ");
+        Arrays.stream(te).sorted((a,b) -> compare(a,b)).forEach(System.out::println);
+        Arrays.stream(te).sorted(Integer::compare).forEach(System.out::println);
+        Arrays.stream(te).sorted(Comparator.comparingInt(a -> a)).forEach(System.out::println);
+        Arrays.stream(te).sorted(Comparator.naturalOrder()).forEach(System.out::println);
+
+        System.out.println(" *** *** test Interface Comparable not fuctional interface *** ");
+        Arrays.stream(te).sorted((a,b) -> a.compareTo(b)).forEach(System.out::println);
+        Arrays.stream(te).sorted(Integer::compareTo).forEach(System.out::println);
+
         //Arrays.stream(tab).mapToObj(x -> new Integer(x)).sorted(Comparator.reverseOrder()).forEach(System.out::println);
 
         //Stream.of(2,456,688,776).forEach(System.out::println);
@@ -80,20 +97,20 @@ public class Main {
         List<String> chaines = Arrays.asList("1", "2", "3", "4", "5");
 
         String chaine = chaines.stream().reduce("", String::concat);
-        System.out.println(chaine);
+        System.out.println("chaine "+chaine);
 
         int somme = Arrays.stream(tab).reduce(0, (x, y) -> x + y);
         System.out.println("Somme = " + somme);
         System.out.println(Arrays.stream(tab).sum());
 
-        System.out.println(Arrays.stream(tab).reduce(0, Math::max));
-        System.out.println(Arrays.stream(tab).reduce(0, Integer::max));
-        System.out.println(Arrays.stream(tab).reduce(0, (x, y) -> Math.max(x,y)));
+        System.out.println(Arrays.stream(tab).reduce(Math::max).getAsInt());
+        System.out.println(Arrays.stream(tab).reduce(Integer::max).getAsInt());
+        System.out.println(Arrays.stream(tab).reduce((x, y) -> Math.max(x,y)).isPresent());
 
 
-        /*Arrays.fill(tab, 2);
+        Arrays.fill(tab, 2);
         Arrays.toString(tab);
-        System.out.println(Arrays.toString(tab));*/
+        System.out.println(Arrays.toString(tab));
 
         Arrays.parallelSort(tab);
         System.out.println(Arrays.toString(tab));
@@ -104,6 +121,7 @@ public class Main {
         Arrays.stream(tab).map(Integer::new);
 
         Integer[] t = new Integer[]{24,3,5,34,56,1};
+
         Arrays.parallelSort(t, Comparator.reverseOrder());
         System.out.println(Arrays.toString(t));
 
@@ -490,6 +508,18 @@ public class Main {
             public void setState(String state) {
                 this.state = state;
             }
+
+            @Override
+            public String toString() {
+                return "McDonald{" +
+                        "latitude=" + latitude +
+                        ", longitude=" + longitude +
+                        ", name='" + name + '\'' +
+                        ", address='" + address + '\'' +
+                        ", city='" + city + '\'' +
+                        ", state='" + state + '\'' +
+                        '}';
+            }
         }
 
         try {
@@ -506,15 +536,55 @@ public class Main {
                 McDonald m = new McDonald();
                 m.setLatitude(Double.parseDouble(linesString[0]));
                 m.setLongitude(Double.parseDouble(linesString[1]));
-                System.out.println(linesString[2].substring(2));
+                m.setName(linesString[2].substring(2)+ linesString[3].substring(0, linesString[3].length() - 1));
+                //System.out.println(linesString[2].substring(2)+ linesString[3].substring(0, linesString[3].length() - 1));
+                m.setAddress(linesString[4].substring(1));
+                m.setCity(linesString[5].trim());
+                m.setState(linesString[6].trim());
+                if (m.getState().endsWith("\"")) {
+                    m.setState(m.getState().substring(0, m.getState().length() - 1)) ;
+                }
+                if (m.getState().contains(" ")) {
+                    m.setState(m.getState().substring(0, m.getState().indexOf(" "))) ;
+                }
+                if (m.getState().length() > 2) {
+                    m.setState(linesString[7].trim()) ;
+                }
                 return m;
             }).collect(Collectors.toList());
+
+            System.out.println("Nombre de mcdos: " + mcdos.size());
+
+            int size = mcdos.stream()
+                    .map(McDonald::getCity)
+                    .collect(Collectors.toSet())
+                    .size();
+
+            System.out.println("Nombre de villes ayant un mcdo: " + size);
+
+            Map.Entry<String, Long> entry = mcdos.stream()
+                    .collect(Collectors.groupingBy(
+                            McDonald::getCity,
+                            Collectors.counting())
+                    )
+                    .entrySet()
+                    .stream()
+                    .max(Map.Entry.comparingByValue())
+                    .get();
+
+            System.out.println("La ville ayant plus de mcdos: " + entry);
+            System.out.println("La ville ayant plus de mcdos: " + entry.getKey());
+
+
         } catch (Exception e){
             System.out.println(e);
         }
-        
 
 
+        //Stream.generate(Math::random).forEach(System.out::println);
+        //Stream.generate(() -> "Java").forEach(System.out::println);
+
+        //Stream.iterate(0, i -> i + 1).forEach(System.out::println);
     }
 
 
