@@ -146,8 +146,14 @@ public class Main {
         fruits.forEach(System.out::println);
 
         Integer[] valeurs = {10, 4, 2, 7, 5, 8, 1, 9, 3, 6};
+        System.out.println(" *********** test valeurs comparator !!");
         Arrays.sort(valeurs, Integer::compareTo);
+        System.out.println(Arrays.toString(valeurs));
         Arrays.sort(valeurs, Integer::compare);
+        System.out.println(Arrays.toString(valeurs));
+        Arrays.sort(valeurs, Comparator.comparingInt(Integer::intValue));
+        System.out.println(Arrays.toString(valeurs));
+        Arrays.sort(valeurs, Comparator.reverseOrder());
         System.out.println(Arrays.toString(valeurs));
         System.out.println(Arrays.deepToString(valeurs));
 
@@ -178,6 +184,8 @@ public class Main {
 
         Comparator<Integer> myComparator = (n1,n2) -> n2 - n1;
         Arrays.sort(valeurs, myComparator);
+        System.out.println(Arrays.deepToString(valeurs));
+        Arrays.sort(valeurs, (n1,n2) -> n2 - n1);
         System.out.println(Arrays.deepToString(valeurs));
 
 
@@ -307,13 +315,15 @@ public class Main {
                 .map(String::toUpperCase)
                 //.collect(Collectors.joining("," ,"{", "}"))
                 .collect(Collectors.toCollection(TreeSet::new))
-        .forEach(System.out::println);
+                .forEach(System.out::println);
 
         Integer value = new Integer(10);
         Optional<Integer> a = Optional.ofNullable(value);
         System.out.println(a.isPresent()? a : 0);
         Optional<Integer> a2 = Optional.ofNullable(new Integer(2));
         System.out.println(a2.orElse(new Integer(0)));
+        System.out.println(a2.orElse(0));
+        System.out.println(a2.orElseGet(() -> new Integer(0)));
 
 
         System.out.println(ZoneId.systemDefault());
@@ -423,7 +433,8 @@ public class Main {
                 .peek(e -> System.out.println("Filtered value: " + e))
                 .map(String::toUpperCase)
                 .peek(e -> System.out.println("Mapped value: " + e))
-                .collect(Collectors.toList()).forEach(System.out::println);
+                .collect(Collectors.toList())
+                .forEach(System.out::println);
 
 
         int[] ints = {-9, 14, 37, 102};
