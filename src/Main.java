@@ -1,4 +1,8 @@
+import apple.laf.JRSUIConstants;
+
+import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -9,10 +13,7 @@ import java.time.temporal.TemporalAdjusters;
 import java.time.temporal.TemporalUnit;
 import java.util.*;
 import java.util.function.*;
-import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
-import java.util.stream.IntStream;
-import java.util.stream.Stream;
+import java.util.stream.*;
 
 import static java.lang.Integer.compare;
 
@@ -85,12 +86,16 @@ public class Main {
         Arrays.stream(te).sorted(Comparator.naturalOrder()).forEach(System.out::println);
 
         System.out.println(" *** *** test Interface Comparable not fuctional interface *** ");
-        Arrays.stream(te).sorted((a,b) -> a.compareTo(b)).forEach(System.out::println);
+        Arrays.stream(te).sorted((a,b) -> b.compareTo(a)).forEach(System.out::println);
         Arrays.stream(te).sorted(Integer::compareTo).forEach(System.out::println);
 
-        //Arrays.stream(tab).mapToObj(x -> new Integer(x)).sorted(Comparator.reverseOrder()).forEach(System.out::println);
+        Arrays.stream(tab).mapToObj(x -> new Integer(x)).sorted(Comparator.reverseOrder()).forEach(System.out::println);
 
-        //Stream.of(2,456,688,776).forEach(System.out::println);
+        System.out.println(" *********** test new !!");
+        Arrays.stream(tab).mapToLong(Long::new).forEach(System.out::println);
+        Arrays.stream(tab).mapToLong(Integer::new).forEach(System.out::println);
+
+        Stream.of(2,456,688,776).forEach(System.out::println);
 
         Stream.of(2,456,688,776, 2, 1,1,456).distinct().forEach(System.out::println);
 
@@ -106,7 +111,6 @@ public class Main {
         System.out.println(Arrays.stream(tab).reduce(Math::max).getAsInt());
         System.out.println(Arrays.stream(tab).reduce(Integer::max).getAsInt());
         System.out.println(Arrays.stream(tab).reduce((x, y) -> Math.max(x,y)).isPresent());
-
 
         Arrays.fill(tab, 2);
         Arrays.toString(tab);
@@ -353,9 +357,8 @@ public class Main {
             }
         }
 
-        Person[] people;
 
-        people = new Person[] {
+        Person[] people = new Person[] {
                             new Person("mark", 12 ),
                             new Person("tet", 30 ),
                             new Person("mark", 5 ),
@@ -363,6 +366,14 @@ public class Main {
                             new Person("mama", 40 ),
                             new Person("Mama", 40 )
         };
+
+        Person[] men = Arrays.stream(people)
+                .filter(p -> p.getAge() <= 30)
+                .toArray(Person[]::new);
+
+        Arrays.stream(men).forEach(System.out::println);
+
+
 
         Arrays.sort(people, (x,b) -> x.getAge() - b.getAge());
         System.out.println(Arrays.toString(people));
@@ -525,14 +536,13 @@ public class Main {
         try {
             //Stream<String> lines = Files.lines(Paths.get("/Users/omarlo/Desktop/mcdonalds.csv")) ;
             //Stream<String> lines = Files.lines(Paths.get("/Users/omarlo/Desktop", "test.txt")) ;
-            Stream<String> lines = Files.lines(Paths.get("/Users/omarlo/Desktop", "mcdonalds.csv")) ;
-            //lines.forEach(System.out::println);
-            List<McDonald> mcdos = lines.map(l ->{
+            Stream<String> lines = Files.lines(Paths.get("/Users/omarlo/Desktop/Java JEE", "mcdonalds.csv")) ;
+            List<McDonald> mcdos = lines.map(line ->{
 
                 // -149.95038,61.13712,"McDonalds-Anchorage,AK","3828 W Dimond Blvd, Anchorage,AK, (907) 248-0597"
                 // -72.84817,41.27988,"McDonalds-Branford,CT","424 W Main St, Branford,CT, (203) 488-9353"
 
-                String [] linesString = l.split(",");
+                String [] linesString = line.split(",");
                 McDonald m = new McDonald();
                 m.setLatitude(Double.parseDouble(linesString[0]));
                 m.setLongitude(Double.parseDouble(linesString[1]));
@@ -585,6 +595,23 @@ public class Main {
         //Stream.generate(() -> "Java").forEach(System.out::println);
 
         //Stream.iterate(0, i -> i + 1).forEach(System.out::println);
+
+        Path pathDocsUtilisateur = Paths.get(System.getProperty("user.home"));
+        System.out.println(pathDocsUtilisateur);
+
+        try {
+            Files.list(pathDocsUtilisateur).forEach(System.out::println);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
+        Collector<JRSUIConstants.Widget, ?, TreeSet<JRSUIConstants.Widget>> intoSet =
+                Collector.of(TreeSet::new, TreeSet::add,
+                        (left, right) -> { left.addAll(right); return left; });
+
+        //System.out.println(intoSet);
+
     }
 
 
