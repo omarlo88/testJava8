@@ -4,10 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.ZoneId;
+import java.time.*;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.TemporalAdjusters;
 import java.time.temporal.TemporalUnit;
@@ -65,6 +62,8 @@ public class Main {
             System.out.println(i);
         }*/
 
+        Instant date = Instant.now();
+        System.out.println(date);
         LocalDate localDate = LocalDate.now();
         LocalDateTime localDateTime = LocalDateTime.now();
         System.out.println(localDate);
