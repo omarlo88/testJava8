@@ -92,7 +92,6 @@ public class Main {
 
         System.out.println(" *********** test new !!");
         Arrays.stream(tab).mapToLong(Long::new).forEach(System.out::println);
-        Arrays.stream(tab).mapToLong(Integer::new).forEach(System.out::println);
 
         Stream.of(2,456,688,776).forEach(System.out::println);
 
@@ -101,7 +100,7 @@ public class Main {
         List<String> chaines = Arrays.asList("1", "2", "3", "4", "5");
 
         String chaine = chaines.stream().reduce("", String::concat);
-        System.out.println("chaine "+chaine);
+        System.out.println("chaine " + chaine);
 
         int somme = Arrays.stream(tab).reduce(0, (x, y) -> x + y);
         System.out.println("Somme = " + somme);
@@ -130,9 +129,7 @@ public class Main {
 
         Function<Integer, Boolean> isExist = n -> n >= 0;
         Function<Integer, Boolean> isExist1 = n -> {return n >= 0;};
-        System.out.println("isExist "+isExist.apply(4));
-
-
+        System.out.println("isExist " + isExist.apply(4));
 
 
         List<String> fruits = Arrays.asList("melon", "abricot", "fraise", "cerise");
