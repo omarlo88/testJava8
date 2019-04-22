@@ -1,6 +1,8 @@
 import apple.laf.JRSUIConstants;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URI;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -266,10 +268,12 @@ public class Main {
 
         Arrays.asList(1,3,4,5,67,7,6,20,30).forEach(System.out::println);
 
-        Arrays.asList(1,3,4,5,67,7,6,20,30)
+        int[] ints1 = Arrays.asList(1, 3, 4, 5, 67, 7, 6, 20, 30)
                 .stream()
                 .filter(n -> n >= 20)
-                .forEach(System.out::println);
+                .mapToInt(Integer::intValue)
+                .toArray();
+        //.forEach(System.out::println);
 
         System.out.println(" ***** ");
         Arrays.asList(1,3,4,5,67,7,6,20,30)
@@ -294,6 +298,8 @@ public class Main {
 
 
         StringJoiner s = new StringJoiner(",");
+        s.add("test").add("next");
+        System.out.println("new StringJoiner(\",\")" + s.toString());
 
         List<String> stringList = Arrays.asList("abc", "", "bc", "efg", "abcd","", "jkl");
         List<String> filtered = stringList.stream()
@@ -306,6 +312,10 @@ public class Main {
                 .forEach(System.out::println);
 
         String[] strTab = {"abc", "", "bc", "abc", "efg", "abcd", "", "jkl"};
+
+        int [] g = new int[]{1,2};
+        int [] g1 = {1,2};
+        int [] g2 = new int[2];
 
         Arrays.stream(strTab)
                 .map(String::toUpperCase)
@@ -538,6 +548,24 @@ public class Main {
                         ", state='" + state + '\'' +
                         '}';
             }
+        }
+
+        URI u = URI.create("http://java.sun.com/");
+        try (InputStream in = u.toURL().openStream()) {
+            //Files.copy(in, path);
+        }catch (IOException e){
+            System.out.println(e);
+        }
+
+        try(Stream<String> lines = Files.lines(Paths.get("/Users/omarlo/Desktop/Java JEE/mcdonalds.csv"))){
+            // code ...
+            lines.map(line ->{
+                String[] sg = line.split(",");
+                System.out.println(Arrays.toString(sg));
+                return sg;
+            });
+        }catch (Exception e){
+            System.out.println(e);
         }
 
         try {
