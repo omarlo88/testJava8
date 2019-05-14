@@ -12,6 +12,24 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
   <component name="FavoritesManager">
     <favorites_list name="demoJava8" />
   </component>
@@ -20,8 +38,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-445">
-              <caret line="551" column="8" selection-start-line="551" selection-start-column="8" selection-end-line="551" selection-end-column="8" />
+            <state relative-caret-position="364">
+              <caret line="180" column="46" lean-forward="true" selection-start-line="180" selection-start-column="46" selection-end-line="180" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -46,7 +64,7 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="729" />
@@ -57,6 +75,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -77,11 +97,10 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql&#10;db2" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -179,7 +198,10 @@
       <workItem from="1556692528199" duration="4504000" />
       <workItem from="1556785086442" duration="42000" />
       <workItem from="1556785197099" duration="296000" />
-      <workItem from="1556984202263" duration="1023000" />
+      <workItem from="1556984202263" duration="7742000" />
+      <workItem from="1557322579641" duration="597000" />
+      <workItem from="1557410949058" duration="1749000" />
+      <workItem from="1557842343853" duration="2328000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1554143511283</created>
@@ -258,11 +280,18 @@
       <option name="project" value="LOCAL" />
       <updated>1555968836331</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="first commit 2">
+      <created>1556985245373</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1556985245377</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="130230000" />
+    <option name="totallyTimeSpent" value="141623000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -274,11 +303,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="729" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="734" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.45753425" visible="true" weight="0.2786753" />
-      <window_info id="Structure" order="1" sideWeight="0.54246575" side_tool="true" visible="true" weight="0.2786753" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.453958" visible="true" weight="0.29159936" />
+      <window_info id="Structure" order="1" sideWeight="0.546042" side_tool="true" visible="true" weight="0.29159936" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
@@ -287,7 +316,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.40553746" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.048859935" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -454,11 +483,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/out/production/demoJava8/Main.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-6045" />
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/scratches/scratch.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -469,10 +493,15 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/out/production/demoJava8/Main.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-8562" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-445">
-          <caret line="551" column="8" selection-start-line="551" selection-start-column="8" selection-end-line="551" selection-end-column="8" />
+        <state relative-caret-position="364">
+          <caret line="180" column="46" lean-forward="true" selection-start-line="180" selection-start-column="46" selection-end-line="180" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

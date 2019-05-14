@@ -104,6 +104,7 @@ public class Main {
         System.out.println("chaine " + chaine);
 
         int somme = Arrays.stream(tab).reduce(0, (x, y) -> x + y);
+        int somme1 = Arrays.stream(tab).reduce(0, Integer::sum);
         System.out.println("Somme = " + somme);
         System.out.println(Arrays.stream(tab).sum());
 
@@ -162,12 +163,20 @@ public class Main {
         int[] valeurs1 = {10, 4, 2, 7, 5, 8, 1, 9, 3, 6};
         int nimNumber1 = IntStream.of(valeurs1).min().getAsInt();
         System.out.println("nimNumber1: " + nimNumber1);
+        int sommeEl = IntStream.of(valeurs1).sum();
 
         IntStream.of(valeurs1).min().ifPresent(System.out::println);
 
         IntStream.of(valeurs1)
                 .distinct()
                 .sorted()
+                .limit(3)
+                .forEach(System.out::println);
+
+        IntStream.of(valeurs1)
+                .distinct()
+                .boxed()
+                .sorted(Comparator.reverseOrder())
                 .limit(3)
                 .forEach(System.out::println);
 
@@ -486,8 +495,7 @@ public class Main {
                 this.state = state;
             }
 
-            public McDonald() {
-            }
+            public McDonald() {}
 
             public double getLatitude() {
                 return latitude;
