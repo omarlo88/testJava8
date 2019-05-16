@@ -173,12 +173,13 @@ public class Main {
                 .limit(3)
                 .forEach(System.out::println);
 
-        IntStream.of(valeurs1)
-                .distinct()
-                .boxed()
-                .sorted(Comparator.reverseOrder())
-                .limit(3)
-                .forEach(System.out::println);
+        int[] ints2 = IntStream.of(valeurs1)
+                            .distinct()
+                            .boxed()
+                            //.sorted((x,y)-> y-x)
+                            .sorted(Comparator.reverseOrder())
+                            .mapToInt(Integer::intValue)
+                            .toArray();
 
         IntStream.range(1, 100).forEach(System.out::println);
         int[] toArray = IntStream.range(1, 100).toArray();
@@ -257,7 +258,7 @@ public class Main {
         System.out.println("**  ET écriture directement du consumer pas d'initialisation ");
 
         afficherResInt(caluler(6, 8, (a, b) -> a + b), a -> System.out.println(a));
-        afficherResInt(caluler(6, 8, (a, b) -> a - b), a -> System.out.println(a));
+        afficherResInt(caluler(6, 8, (a, b) -> a - b), System.out::println);
         afficherResInt(caluler(6, 8, (x, y) -> x * y), x -> System.out.println(x));
         afficherResInt(caluler(6, 8, (a, b) -> {
             if (b == 0) {
@@ -265,9 +266,10 @@ public class Main {
             } else {
                 return a / b;
             }
-        }), x -> System.out.println(x));
+        }), System.out::println);
 
         BiFunction<Integer, Integer, Integer> ttt = (a, b) -> a + b;
+        BiFunction<Integer, Integer, Integer> ttt1 = Integer::sum;
         System.out.println("BiFunction " + calculer2(5, 5, ttt));
 
         ToIntBiFunction<Integer, Integer> ttt3 = (a, b) -> a + b;
@@ -399,6 +401,17 @@ public class Main {
                 .toArray(Person[]::new);
 
         Arrays.stream(men).forEach(System.out::println);
+
+        Arrays.sort(people, Comparator.comparing(Person::getName)
+                .thenComparing(Person::getAge));
+
+        Person p = new Person("Mama", 40);
+        int indexPerson = Arrays
+                .binarySearch(people, p, Comparator.comparing(Person::getName)
+                        .thenComparing(Person::getAge)
+        );
+
+        System.out.println("indexPerson = " + indexPerson);
 
 
         Arrays.sort(people, (x, b) -> x.getAge() - b.getAge());
