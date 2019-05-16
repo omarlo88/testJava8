@@ -654,8 +654,16 @@ public class Main {
             System.out.println("La ville ayant plus de mcdos: " + entry);
             System.out.println("La ville ayant plus de mcdos: " + entry.getKey());
 
+           Map<String, Long> map = mcdos.stream()
+                   .collect(Collectors.groupingBy(McDonald::getCity, Collectors.counting()));
 
-        } catch (Exception e) {
+           map.forEach((k, v) -> System.out.println(k + " => " + v));
+
+           mcdos.stream()
+                   .collect(Collectors.groupingBy(McDonald::getCity, Collectors.counting()))
+           .forEach((k, v) -> System.out.println(k + " => " + v));
+
+       } catch (Exception e) {
             System.out.println(e);
         }
 
