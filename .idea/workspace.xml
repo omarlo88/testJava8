@@ -38,16 +38,29 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="217">
-              <caret line="413" column="41" selection-start-line="413" selection-start-column="41" selection-end-line="413" selection-end-column="41" />
+            <state relative-caret-position="-618">
+              <caret line="740" column="55" selection-start-line="740" selection-start-column="47" selection-end-line="740" selection-end-column="55" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#26700#26701#0" expanded="true" />
+                <element signature="e#26730#26731#0" expanded="true" />
+                <element signature="e#27278#27279#0" expanded="true" />
+                <element signature="e#27328#27329#0" expanded="true" />
+                <element signature="e#27708#27709#0" expanded="true" />
+                <element signature="e#27744#27745#0" expanded="true" />
+                <element signature="e#27827#27828#0" expanded="true" />
+                <element signature="e#27863#27864#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>caluler</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -67,7 +80,7 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="y" value="23" />
     <option name="width" value="1280" />
-    <option name="height" value="733" />
+    <option name="height" value="729" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -75,8 +88,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -97,6 +108,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -203,7 +216,8 @@
       <workItem from="1557410949058" duration="1749000" />
       <workItem from="1557842343853" duration="3625000" />
       <workItem from="1557999939707" duration="824000" />
-      <workItem from="1558003072743" duration="645000" />
+      <workItem from="1558003072743" duration="3541000" />
+      <workItem from="1558281768788" duration="4432000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1554143511283</created>
@@ -296,11 +310,25 @@
       <option name="project" value="LOCAL" />
       <updated>1557845121849</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="first commit 2">
+      <created>1558003746558</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1558003746559</updated>
+    </task>
+    <task id="LOCAL-00015" summary="first commit 2">
+      <created>1558014392899</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1558014392899</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="144389000" />
+    <option name="totallyTimeSpent" value="151717000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -312,11 +340,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1280" height="730" extended-state="0" />
+    <frame x="0" y="23" width="1280" height="737" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4511041" visible="true" weight="0.30129242" />
-      <window_info id="Structure" order="1" sideWeight="0.5488959" side_tool="true" visible="true" weight="0.30129242" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.45016077" visible="true" weight="0.20113085" />
+      <window_info id="Structure" order="1" sideWeight="0.5498392" side_tool="true" visible="true" weight="0.20113085" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
@@ -325,7 +353,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.48455286" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.38861787" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -509,10 +537,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="413" column="41" selection-start-line="413" selection-start-column="41" selection-end-line="413" selection-end-column="41" />
+        <state relative-caret-position="-618">
+          <caret line="740" column="55" selection-start-line="740" selection-start-column="47" selection-end-line="740" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#26700#26701#0" expanded="true" />
+            <element signature="e#26730#26731#0" expanded="true" />
+            <element signature="e#27278#27279#0" expanded="true" />
+            <element signature="e#27328#27329#0" expanded="true" />
+            <element signature="e#27708#27709#0" expanded="true" />
+            <element signature="e#27744#27745#0" expanded="true" />
+            <element signature="e#27827#27828#0" expanded="true" />
+            <element signature="e#27863#27864#0" expanded="true" />
           </folding>
         </state>
       </provider>
