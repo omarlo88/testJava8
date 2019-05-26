@@ -31,6 +31,7 @@ public class Main {
             1) Arrays
         * */
 
+        
         int[] tab = {1, 30, 5, 8, 10};
         int[] tab1 = new int[]{1, 30, 5, 8, 10};
         System.out.println(Arrays.toString(tab));
@@ -57,6 +58,12 @@ public class Main {
         Arrays.parallelSetAll(array, i -> random.nextInt(2));
 
         System.out.println(Arrays.toString(array));
+
+        String collect = IntStream.range(1, 10)
+                .boxed()
+                .map(Object::toString)
+                .collect(Collectors.joining(", "));
+        System.out.println(collect);
 
         /*for (int i:array
              ) {
