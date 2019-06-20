@@ -92,6 +92,8 @@ public class Main {
         Arrays.stream(te).sorted(Comparator.comparingInt(a -> a)).forEach(System.out::println);
         Arrays.stream(te).sorted(Comparator.naturalOrder()).forEach(System.out::println);
 
+        Arrays.sort(te, Comparator.reverseOrder());
+
         System.out.println(" *** *** test Interface Comparable not fuctional interface *** ");
         Arrays.stream(te).sorted((a, b) -> b.compareTo(a)).forEach(System.out::println);
         Arrays.stream(te).sorted(Integer::compareTo).forEach(System.out::println);
@@ -235,6 +237,11 @@ public class Main {
         MyOperation addition = (a, b) -> {
             return a + b;
         };
+
+        MyOperation addition1 = Integer::sum;
+
+        //MyOperation soust = (a, b)-> a - b;
+
         MyOperation soustration = (int a, int b) -> a - b;
         MyOperation multiplication = (a, b) -> a * b;
         MyOperation division = (a, b) -> {
@@ -673,7 +680,7 @@ public class Main {
 
        } catch (Exception e) {
             System.out.println(e);
-        }
+       }
 
 
         //Stream.generate(Math::random).forEach(System.out::println);

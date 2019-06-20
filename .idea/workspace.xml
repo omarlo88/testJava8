@@ -38,8 +38,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="61" column="46" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
+            <state relative-caret-position="17">
+              <caret line="770" column="58" selection-start-line="770" selection-start-column="44" selection-end-line="770" selection-end-column="58" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -81,6 +81,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -101,7 +102,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -214,7 +214,8 @@
       <workItem from="1558623431422" duration="512000" />
       <workItem from="1558636516523" duration="313000" />
       <workItem from="1558730585928" duration="2903000" />
-      <workItem from="1558875286746" duration="281000" />
+      <workItem from="1558875286746" duration="6940000" />
+      <workItem from="1560933413252" duration="476000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1554143511283</created>
@@ -328,11 +329,18 @@
       <option name="project" value="LOCAL" />
       <updated>1558287592299</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="first commit 2">
+      <created>1558875590514</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1558875590514</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="156993000" />
+    <option name="totallyTimeSpent" value="164128000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -347,8 +355,8 @@
     <frame x="0" y="23" width="1280" height="729" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.44299674" visible="true" weight="0.21728595" />
-      <window_info id="Structure" order="1" sideWeight="0.55700326" side_tool="true" visible="true" weight="0.21728595" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.44136807" visible="true" weight="0.22051696" />
+      <window_info id="Structure" order="1" sideWeight="0.5586319" side_tool="true" visible="true" weight="0.22051696" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="Capture Tool" order="4" />
@@ -357,7 +365,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.38762215" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.09771987" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -541,8 +549,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="61" column="46" selection-start-line="61" selection-start-column="46" selection-end-line="61" selection-end-column="46" />
+        <state relative-caret-position="17">
+          <caret line="770" column="58" selection-start-line="770" selection-start-column="44" selection-end-line="770" selection-end-column="58" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
