@@ -47,6 +47,18 @@ public class Main {
         System.out.println(index);
         System.out.println(Arrays.binarySearch(tabStr, "B"));
 
+/*
+        // Java code below
+import java.util.Arrays;
+
+        class A {
+
+            static boolean exists(int[] ints, int k) {
+                return Arrays.stream(ints).anyMatch(x -> x == k);
+                return Arrays.binarySearch(ints, k) >=0;
+            }
+        }
+*/
         //int[] array = new int[20_000_000];
         int[] array = new int[5];
         Random random = new Random();
@@ -108,6 +120,12 @@ public class Main {
         Stream.of(2, 456, 688, 776, 2, 1, 1, 456).distinct().forEach(System.out::println);
 
         List<String> chaines = Arrays.asList("1", "2", "3", "4", "5");
+        List<String> ch = new ArrayList<>(chaines);
+        long count = ch.stream().count();
+
+        int indexT = Collections.binarySearch(chaines, "2");
+
+        System.out.println("Collections.binarySearch " + indexT);
 
         String chaine = chaines.stream().reduce("", String::concat);
         System.out.println("chaine " + chaine);
@@ -208,7 +226,7 @@ public class Main {
 
 
         Arrays.sort(valeurs, (n1, n2) -> n2 - n1);
-        System.out.println("(n1, n2) -> n2 -n1 : " + Arrays.deepToString(valeurs));
+        System.out.println("(n1, n2) -> n2 - n1 : " + Arrays.deepToString(valeurs));
 
 
         DoubleFunction<String> formater = (x) -> String.format("%.3f", x);
@@ -225,9 +243,10 @@ public class Main {
         names.add("Naresh ");
         names.add("Kalpesh ");
 
-        Collections.sort(names, (s1, s2) -> s1.compareTo(s2));
-        System.out.println(names);
+
         names.sort(String::compareTo);
+        System.out.println(names);
+        Collections.sort(names, (s1, s2) -> s1.compareTo(s2));
         System.out.println(names);
         Collections.sort(names, String::compareTo);
         System.out.println(names);
@@ -332,6 +351,8 @@ public class Main {
                 .collect(Collectors.toList());
         System.out.println(filtered);
 
+        System.out.println("\"\"");
+
         Stream.of("abc", "", "bc", "abc", "efg", "abcd", "", "jkl")
                 //.map(a -> a.toUpperCase())
                 .map(String::toUpperCase)
@@ -356,6 +377,8 @@ public class Main {
         System.out.println(a2.orElse(new Integer(0)));
         System.out.println(a2.orElse(0));
         System.out.println(a2.orElseGet(() -> new Integer(0)));
+
+        OptionalInt fj = OptionalInt.of(3);
 
 
         System.out.println(ZoneId.systemDefault());
@@ -646,6 +669,9 @@ public class Main {
             }).collect(Collectors.toList());
 
             System.out.println("Nombre de mcdos: " + mcdos.size());
+           System.out.println("Nombre de mcdos: " +
+                   mcdos.stream().count()
+                   );
 
             int size = mcdos.stream()
                     .map(McDonald::getCity)
@@ -815,4 +841,41 @@ public class Main {
     private static void afficherResInt(Integer res, Consumer<Integer> consumer) {
         consumer.accept(res);
     }
+
+
+
+    /*
+
+
+    *
+    * // JavaScript code below
+// Use printErr(...) to debug your solution.
+
+        function findLargest(numbers) {
+            // Your code goes here
+            //return Math.max.apply(Math, numbers);
+            return Math.max(...numbers);
+        }
+        *
+        *
+        *
+        * -- SQL request(s) below
+            SELECT product_id, name, price
+            FROM product WHERE price >= 100 ORDER BY price DESC
+    *
+    * */
+
+
+    /*
+        // Java code below
+import java.util.Arrays;
+
+        class A {
+
+            static boolean exists(int[] ints, int k) {
+                //return Arrays.stream(ints).anyMatch(x -> x == k);
+                return Arrays.binarySearch(ints, k) >=0;
+            }
+        }
+*/
 }
