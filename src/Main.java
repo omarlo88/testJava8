@@ -47,6 +47,11 @@ public class Main {
         System.out.println(index);
         System.out.println(Arrays.binarySearch(tabStr, "B"));
 
+        OptionalInt max = IntStream.of(tab).max();
+        System.out.println("OptionalInt max " + max);
+        int max1 = IntStream.of(tab).max().getAsInt();
+        System.out.println("OptionalInt max1 " + max1);
+
 /*
         // Java code below
 import java.util.Arrays;
@@ -81,6 +86,7 @@ import java.util.Arrays;
              ) {
             System.out.println(i);
         }*/
+
 
         Instant date = Instant.now();
         System.out.println(date);
@@ -122,6 +128,8 @@ import java.util.Arrays;
         List<String> chaines = Arrays.asList("1", "2", "3", "4", "5");
         List<String> ch = new ArrayList<>(chaines);
         long count = ch.stream().count();
+        int count1 = ch.size();
+
 
         int indexT = Collections.binarySearch(chaines, "2");
 
@@ -161,7 +169,7 @@ import java.util.Arrays;
             return n >= 0;
         };
         System.out.println("isExist " + isExist.apply(4));
-
+        
 
         List<String> fruits = Arrays.asList("melon", "abricot", "fraise", "cerise");
         afficherListe(fruits, (format, arguments) -> String.format(format, arguments));
@@ -247,6 +255,7 @@ import java.util.Arrays;
         names.sort(String::compareTo);
         System.out.println(names);
         Collections.sort(names, (s1, s2) -> s1.compareTo(s2));
+        Collections.sort(names, Comparator.naturalOrder());
         System.out.println(names);
         Collections.sort(names, String::compareTo);
         System.out.println(names);
@@ -393,9 +402,9 @@ import java.util.Arrays;
         LocalDate nextTuesday = date1.with(TemporalAdjusters.next(DayOfWeek.TUESDAY));
         System.out.println("Next Tuesday on : " + nextTuesday);
 
-        //get the second saturday of next month
         LocalDate firstInYear = LocalDate.of(date1.getYear(), date1.getMonth(), 1);
         System.out.println("firstInYear: " + firstInYear);
+        //get the second saturday of next month
         LocalDate secondSaturday = firstInYear.with(TemporalAdjusters.nextOrSame(
                 DayOfWeek.SATURDAY)).with(TemporalAdjusters.next(DayOfWeek.SATURDAY));
         System.out.println("Second Saturday on : " + secondSaturday);
@@ -690,6 +699,7 @@ import java.util.Arrays;
                     .max(Map.Entry.comparingByValue())
                     .get();
 
+
             System.out.println("La ville ayant plus de mcdos: " + entry);
             System.out.println("La ville ayant plus de mcdos: " + entry.getKey());
 
@@ -877,5 +887,24 @@ import java.util.Arrays;
                 return Arrays.binarySearch(ints, k) >=0;
             }
         }
+
+
+
+        // JavaScript code​​​​​​‌​​​​‌‌‌‌‌‌‌​‌‌​‌‌‌​​‌‌‌‌ below
+// Use printErr(...) to debug your solution.
+
+function closestToZero(numbers) {
+    // Your code goes here
+    var d = 0;
+    for (var i = 0; i < numbers.length; i++) {
+        var n = numbers[i];
+        if (d === 0 || Math.abs(d) > Math.abs(n)
+                || Math.abs(d) == Math.abs(n) && d < n) {
+            d = n;
+        }
+    }
+    return d;
+}
+
 */
 }
