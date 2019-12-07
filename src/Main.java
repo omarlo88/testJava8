@@ -43,6 +43,8 @@ public class Main {
 
         boolean isExiste = Arrays.binarySearch(tab, 1) >= 0;
 
+        final int asInt = Arrays.stream(tab).max().getAsInt();
+
         System.out.println(Arrays.binarySearch(tab, 10));
         System.out.println(index);
         System.out.println(Arrays.binarySearch(tabStr, "B"));
@@ -373,6 +375,21 @@ import java.util.Arrays;
         int[] g1 = {1, 2};
         int[] g2 = new int[2];
 
+        System.out.println("******** Predicate *********");
+        Arrays.stream(strTab)
+                .filter(Predicate.isEqual("abc")
+                        //.and(Predicate.isEqual("jkl")
+                        .or(Predicate.isEqual("efg")))//)
+                .forEach(System.out::println);
+
+        System.out.println("********End Predicate *********");
+
+
+        int[] ints3 = IntStream.rangeClosed(1, 8).parallel().map(x -> x * x).toArray();
+
+        OptionalInt any = IntStream.range(1, 8).findAny();
+        System.out.println("findAny() => " + any);
+
         Arrays.stream(strTab)
                 .map(String::toUpperCase)
                 //.collect(Collectors.joining("," ,"{", "}"))
@@ -538,6 +555,15 @@ import java.util.Arrays;
         }
         System.out.println(d);
 
+        double d1 = 0;
+        for (double n : ts) {
+            if (d1 == 0 || Math.abs(d1) > Math.abs(n)
+                    || Math.abs(d1) == Math.abs(n) && d1 < n) {
+                d1 = n;
+            }
+        }
+        System.out.println(d);
+
         /*  Exo Java 8 pour les Macdonalds aux USA */
 
         class McDonald {
@@ -678,7 +704,7 @@ import java.util.Arrays;
             }).collect(Collectors.toList());
 
             System.out.println("Nombre de mcdos: " + mcdos.size());
-           System.out.println("Nombre de mcdos: " +
+            System.out.println("Nombre de mcdos: " +
                    mcdos.stream().count()
                    );
 
@@ -872,6 +898,17 @@ import java.util.Arrays;
         * -- SQL request(s) below
             SELECT product_id, name, price
             FROM product WHERE price >= 100 ORDER BY price DESC
+
+
+            SELECT p.name AS 'Product_name', c.name AS 'Category_Name'
+            FROM Product p, Product_category c
+            WHERE p.product_category_id = c.product_category_id;
+
+        --- oubien avec un join
+
+            SELECT p.name AS 'Product_name', c.name AS 'Category_Name'
+            FROM Product p
+            JOIN Product_category c ON p.product_category_id = c.product_category_id;
     *
     * */
 
@@ -888,10 +925,7 @@ import java.util.Arrays;
             }
         }
 
-
-
-        // JavaScript code​​​​​​‌​​​​‌‌‌‌‌‌‌​‌‌​‌‌‌​​‌‌‌‌ below
-// Use printErr(...) to debug your solution.
+--En JS
 
 function closestToZero(numbers) {
     // Your code goes here
@@ -905,6 +939,16 @@ function closestToZero(numbers) {
     }
     return d;
 }
+
+-- EN Java
+        double d1 = 0;
+        for (double n : ts) {
+            if (d1 == 0 || Math.abs(d1) > Math.abs(n)
+                    || Math.abs(d1) == Math.abs(n) && d1 < n) {
+                d1 = n;
+            }
+        }
+        return d;
 
 */
 }
